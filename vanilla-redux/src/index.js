@@ -18,8 +18,17 @@ const countModifier = (count = 0, action) => {  //기본값 지정, action은 re
 
 }  // reducer 는 데이터를 변경시키는 함수function
 
-const countStore = createStore(countModifier);
 
+
+const countStore = createStore(countModifier);
+// console.log(countStore)
+
+const onChange = () => {
+  console.log("변화 감지")
+}
+
+
+countStore.subscribe(onChange);
 
 // countStore.dispatch({ type: 'add' })
 
