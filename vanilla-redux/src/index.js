@@ -10,9 +10,12 @@ const countModifier = (count = 0, action) => {  //기본값 지정, action은 re
 
   if (action.type === 'add') {
     return count + 1;   // count++ 하면 안됨!!!주의!!
+  } else if (action.type === 'minus') {
+    return count - 1;
+  } else {
+    return count;
   }
 
-  return count;
 }  // reducer 는 데이터를 변경시키는 함수function
 
 const countStore = createStore(countModifier);
@@ -21,6 +24,10 @@ const countStore = createStore(countModifier);
 
 
 countStore.dispatch({ type: 'add' })
+countStore.dispatch({ type: 'add' })
+countStore.dispatch({ type: 'add' })
+countStore.dispatch({ type: 'add' })
+countStore.dispatch({ type: 'add' })
 
 
-console.log(countStore.getState())
+console.log(countStore.getState())   
