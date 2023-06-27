@@ -24,7 +24,8 @@ const store = createStore(reducer);
 store.subscribe(() => console.log(store.getState()))      //자료저장소 추가
 
 const deleteToDo = (e) => {
-  console.log(e.target.parentNode.id)
+  const id = e.target.parentNode.id;
+  store.dispatch({ type: DELETE_TODO, id })
 
 }
 
