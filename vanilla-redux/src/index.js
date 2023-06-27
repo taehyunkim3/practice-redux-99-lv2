@@ -7,6 +7,13 @@ const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO"
 //NEVER MUTATE STATE
 
+
+const addToDo = (text) => {
+  return {
+    { type: ADD_TODO, text }
+}
+}
+
 const reducer = (state = [], action) => {
   console.log(action);
   switch (action.type) {
@@ -51,7 +58,7 @@ const paintToDos = () => {
 store.subscribe(paintToDos);
 
 const addToDo = (text) => {
-  store.dispatch({ type: ADD_TODO, text });
+  store.dispatch(addToDo(text));
 }
 
 
