@@ -5,7 +5,7 @@ const ul = document.querySelector("ul");
 
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO"
-//NEVER MUTATE STATE
+
 
 
 const addToDo = (text) => {
@@ -28,7 +28,7 @@ const reducer = (state = [], action) => {
     case ADD_TODO:
       return [{ text: action.text, id: Date.now() }, ...state];
     case DELETE_TODO:
-      return state.filter((e) => e.id !== action.id);
+      return state.filter((toDo) => toDo.id !== action.id);  //(DO NOT MUTATE STATE, BUT REPLACE IT. )
     default:
       return state;
   }
@@ -39,7 +39,7 @@ const store = createStore(reducer);
 store.subscribe(() => console.log(store.getState()))      //자료저장소 추가
 
 const dispatchDeleteToDo = (e) => {
-  const id = e.target.parentNode.id;
+  const id = parseInt(e.target.parentNode.id);   // html에서 가져오는 id가 string일 수 있으므로
   store.dispatch(deleteToDo(id))
 }
 
@@ -75,7 +75,7 @@ const onSubmit = e => {
   e.preventDefault();
   const toDo = input.value;
   input.value = "";
-  addToDo(toDo);
+  dispatchAddToDo(toDo);
 };
 
 form.addEventListener("submit", onSubmit);
