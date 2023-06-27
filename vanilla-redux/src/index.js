@@ -21,13 +21,12 @@ const countModifier = (count = 0, action) => {  //기본값 지정, action은 re
 const countStore = createStore(countModifier);
 
 
+// countStore.dispatch({ type: 'add' })
 
 
-countStore.dispatch({ type: 'add' })
-countStore.dispatch({ type: 'add' })
-countStore.dispatch({ type: 'add' })
-countStore.dispatch({ type: 'add' })
-countStore.dispatch({ type: 'add' })
+const handleMinus = () => {
+  countStore.dispatch({ type: 'minis' });
+}
 
-
-console.log(countStore.getState())   
+add.addEventListener("click", () => { countStore.dispatch({ type: 'add' }) });
+minus.addEventListener("click", handleMinus);
