@@ -10,8 +10,9 @@ const DELETE_TODO = "DELETE_TODO"
 
 const addToDo = (text) => {
   return {
-    { type: ADD_TODO, text }
-}
+    type: ADD_TODO,
+    text
+  }
 }
 
 const reducer = (state = [], action) => {
