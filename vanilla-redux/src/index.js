@@ -12,7 +12,7 @@ const reducer = (state = [], action) => {
   switch (action.type) {
     case ADD_TODO:
 
-      return [...state, { text: action.text, id: Date.now() }];         //ES6 spread, push를 새 array로 반환하는 방법으로 바꾼것.
+      return [{ text: action.text, id: Date.now() }, ...state];         //방향 앞뒤 바꿔서 새거가 앞에 오도록 함.
     case DELETE_TODO:
       return [];
     default:
