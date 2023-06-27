@@ -24,7 +24,7 @@ const countStore = createStore(countModifier);
 // console.log(countStore)
 
 const onChange = () => {
-  console.log("변화 감지")
+  console.log(countStore.getState())
 }
 
 
@@ -34,7 +34,7 @@ countStore.subscribe(onChange);
 
 
 const handleMinus = () => {
-  countStore.dispatch({ type: 'minis' });
+  countStore.dispatch({ type: 'minus' });
 }
 
 add.addEventListener("click", () => { countStore.dispatch({ type: 'add' }) });
