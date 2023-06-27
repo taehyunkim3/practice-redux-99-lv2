@@ -15,6 +15,13 @@ const addToDo = (text) => {
   }
 }
 
+const deleteToDo = (id) => {
+  return {
+    type: DELETE_TODO,
+    id
+  }
+}
+
 const reducer = (state = [], action) => {
   console.log(action);
   switch (action.type) {
@@ -33,7 +40,7 @@ store.subscribe(() => console.log(store.getState()))      //자료저장소 추�
 
 const dispatchDeleteToDo = (e) => {
   const id = e.target.parentNode.id;
-  store.dispatch({ type: DELETE_TODO, id })
+  store.dispatch(deleteToDo(id))
 
 }
 
