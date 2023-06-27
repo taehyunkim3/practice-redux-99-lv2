@@ -3,6 +3,8 @@ const form = document.querySelector("form");
 const input = document.querySelector("input");
 const ul = document.querySelector("ul");
 
+const toDos = [];
+
 const createToDo = toDo => {
   const li = document.createElement("li");
   li.innerText = toDo;
