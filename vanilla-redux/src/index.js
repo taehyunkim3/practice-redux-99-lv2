@@ -26,6 +26,7 @@ store.subscribe(() => console.log(store.getState()))      //자료저장소 추�
 
 const paintToDos = () => {
   const toDos = store.getState();
+  ul.innerHTML = "";  // 초기화
   toDos.forEach(toDo => {
     const li = document.createElement("li");
     li.id = toDo.id;
