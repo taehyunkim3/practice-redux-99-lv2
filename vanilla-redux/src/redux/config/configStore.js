@@ -2,10 +2,13 @@
 
 import { createStore } from "redux";
 import { combineReducers } from "redux";
+import counter from "../modules/Counter";
+import users from "../modules/users";
 
-const rootReducers = combineReducers({
-});//여기에 state같은 데이터 다 객체형태로 쏟아넣음
+const rootReducer = combineReducers({
+    counter, users,
+});//여기에 state같은 데이터 다 객체형태로 쏟아넣음 (counter:counter -> counter로 생략)
 
-const store = createStore(rootReducers);
+const store = createStore(rootReducer);
 
-export default store
+export default store 
