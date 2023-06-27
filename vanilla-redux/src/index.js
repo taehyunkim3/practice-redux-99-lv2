@@ -30,7 +30,7 @@ const store = createStore(reducer);
 
 store.subscribe(() => console.log(store.getState()))      //자료저장소 추가
 
-const deleteToDo = (e) => {
+const dispatchDeleteToDo = (e) => {
   const id = e.target.parentNode.id;
   store.dispatch({ type: DELETE_TODO, id })
 
@@ -57,7 +57,7 @@ const paintToDos = () => {
 
 store.subscribe(paintToDos);
 
-const addToDo = (text) => {
+const dispatchAddToDo = (text) => {
   store.dispatch(addToDo(text));
 }
 
