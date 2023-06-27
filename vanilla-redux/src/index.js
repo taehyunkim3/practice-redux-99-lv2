@@ -23,8 +23,9 @@ const store = createStore(reducer);
 
 store.subscribe(() => console.log(store.getState()))      //자료저장소 추가
 
-const deleteToDo = () => {
-  console.log('deleted')
+const deleteToDo = (e) => {
+  console.log(e.target.parentNode.id)
+
 }
 
 
@@ -42,7 +43,7 @@ const paintToDos = () => {
     btn.addEventListener('click', deleteToDo)
 
     ul.appendChild(li);
-    ul.appendChild(btn);
+    li.appendChild(btn);
   })
 }
 
