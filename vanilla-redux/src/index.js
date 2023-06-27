@@ -28,7 +28,8 @@ const reducer = (state = [], action) => {
     case ADD_TODO:
       return [{ text: action.text, id: Date.now() }, ...state];
     case DELETE_TODO:
-      return state.filter((toDo) => toDo.id !== action.id);  //(DO NOT MUTATE STATE, BUT REPLACE IT. )
+      const cleaned = state.filter((toDo) => toDo.id !== action.id);  //(DO NOT MUTATE STATE, BUT REPLACE IT. )
+      return cleaned;
     default:
       return state;
   }
@@ -82,6 +83,3 @@ form.addEventListener("submit", onSubmit);
 
 
 
-//single source of truth
-//state를 변경할땐 action을 사용해야하만 함.
-//state를 직접 변경하지 않고 new state를 반환해야만 함.
