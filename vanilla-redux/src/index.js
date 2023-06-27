@@ -18,3 +18,4 @@ const countStore = createStore(countModifier);
 
 console.log(countStore)
 
+countStore.dispatch({ type: 'hello' })
