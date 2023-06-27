@@ -11,7 +11,6 @@ const reducer = (state = [], action) => {
   console.log(action);
   switch (action.type) {
     case ADD_TODO:
-
       return [{ text: action.text, id: Date.now() }, ...state];         //방향 앞뒤 바꿔서 새거가 앞에 오도록 함.
     case DELETE_TODO:
       return [];
@@ -24,14 +23,26 @@ const store = createStore(reducer);
 
 store.subscribe(() => console.log(store.getState()))      //자료저장소 추가
 
+const deleteToDo = () => {
+  console.log('deleted')
+}
+
+
+
 const paintToDos = () => {
   const toDos = store.getState();
   ul.innerHTML = "";  // 초기화
   toDos.forEach(toDo => {
     const li = document.createElement("li");
+    const btn = document.createElement('button');
+
     li.id = toDo.id;
     li.innerText = toDo.text;
+    btn.innerText = 'delete';
+    btn.addEventListener('click', deleteToDo)
+
     ul.appendChild(li);
+    ul.appendChild(btn);
   })
 }
 
@@ -40,6 +51,8 @@ store.subscribe(paintToDos);
 const addToDo = (text) => {
   store.dispatch({ type: ADD_TODO, text });
 }
+
+
 
 
 const onSubmit = e => {
