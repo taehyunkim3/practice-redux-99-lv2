@@ -24,7 +24,7 @@ const countStore = createStore(countModifier);
 // console.log(countStore)
 
 const onChange = () => {
-  console.log(countStore.getState())
+  number.innerText = countStore.getState();
 }
 
 
