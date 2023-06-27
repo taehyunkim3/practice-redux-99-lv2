@@ -1,6 +1,8 @@
 //action value,
-export const PLUS_ONE = "PLUS_ONE";
-export const MINUS_ONE = "MINUS_ONE";
+const PLUS_ONE = "PLUS_ONE";
+export const MINUS_ONE = "MINUS_ONE";  //더이상 export해줄필요없음
+const PLUS_N = "PLUS_N"
+const MINUS_N = "MINUS_N"
 
 //action creator : action value를 reutrn하는 함수  app.js
 export const plusOne = () => {
@@ -13,6 +15,21 @@ export const minusOne = () => {
         type: MINUS_ONE,
     }
 }
+
+export const plusN = (payload) => {
+    return {
+        type: PLUS_N,
+        payload: parseInt(payload),
+    }
+}
+
+export const minusN = (payload) => {
+    return {
+        type: MINUS_N,
+        payload: parseInt(payload),
+    }
+}
+
 
 
 
@@ -40,6 +57,14 @@ const counter = (state = initualState, action) => {
         case MINUS_ONE:
             return {
                 number: state.number - 1
+            }
+        case PLUS_N:
+            return {
+                number: state.number + action.payload,
+            }
+        case MINUS_N:
+            return {
+                number: state.number - action.payload,
             }
         default:
             return state;

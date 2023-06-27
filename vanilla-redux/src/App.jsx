@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
-import { PLUS_ONE, MINUS_ONE, plusOne} from "./redux/modules/Counter";
-import { useEffect, useState } from "react";
+import { PLUS_ONE, MINUS_ONE, plusOne, plusN, minusN} from "./redux/modules/Counter";
+import { useState } from "react";
 
 
 function App() {
@@ -15,9 +15,7 @@ const counter = useSelector((state)=>{
 return state.counter
 });
 
-useEffect(()=>{
-    console.log("number", number)
-}, [number])
+
 
 
 
@@ -32,17 +30,19 @@ const dispatch = useDispatch();
                 <input type="number" value={number} onChange={(e)=>{
                     setNumber(e.target.value)
                 }}></input>
+                <button onClick={()=>dispatch(plusN(number))}>+N</button>
+                <button onClick={()=>dispatch(minusN(number))}>-N</button>
                 <button onClick={()=>{
                          dispatch(plusOne())
                          //+1로직 넣어주기
-                }}>+</button>
+                }}>+1</button>
                 {/* 아래 형태를 위에처럼 변경함(일부러 놔둠) */}
                              <button onClick={()=>{
                          dispatch({
                             type:MINUS_ONE
                          })
                          //+1로직 넣어주기
-                }}>-</button>
+                }}>-1</button>
         </>
 
     );
