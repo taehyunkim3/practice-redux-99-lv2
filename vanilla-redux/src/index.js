@@ -1,31 +1,19 @@
+import { createStore } from "redux";
+
+
+
 const add = document.getElementById("add");
 const minus = document.getElementById("minus");
 const number = document.querySelector("span");
 
+const countModifier = (state = 0) => {
+  console.log(state)
+  return state;
+}  // reducer 는 데이터를 변경시키는 함수function
 
-let count = 0;
-
-number.innerText = count;  // 한번만 일어남 .
-
-const updateText = () => {
-  number.innerText = count;
-}
-
-
-const handleAdd = () => {
-  count++;
-  updateText();
-}
-
-
-const handleMinus = () => {
-  count--;
-  updateText();
-}
+const countStore = createStore(countModifier);
 
 
 
+console.log(countStore)
 
-
-add.addEventListener("click", handleAdd);
-minus.addEventListener("click", handleMinus);
