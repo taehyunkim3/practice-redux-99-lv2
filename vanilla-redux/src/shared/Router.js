@@ -8,6 +8,11 @@ import Works from "../pages/Works";
 import Contact from "../pages/Contact";
 import Page404 from "../pages/Page404";
 import Layout from "./layout";
+import ContactDetail from "../pages/ContactDetail";
+
+
+
+
 
 const Router = () => {
     return (
@@ -18,6 +23,8 @@ const Router = () => {
                     <Route path="about" element={<About />} />
                     <Route path="works" element={<Works />} />
                     <Route path="contact" element={<Contact />} />
+                    <Route path="contact/:id" element={<ContactDetail />} />
+
                     <Route path="*" element={<Page404 />} />
                 </Routes>
             </Layout>
