@@ -19,7 +19,6 @@ const Router = () => {
                     <Route path="works" element={<Works />} />
                     <Route path="contact" element={<Contact />} />
                     <Route path="*" element={<Page404 />} />
-
                 </Routes>
             </Layout>
         </BrowserRouter>
