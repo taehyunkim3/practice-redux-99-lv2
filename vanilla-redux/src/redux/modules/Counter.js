@@ -19,14 +19,14 @@ export const minusOne = () => {
 export const plusN = (payload) => {
     return {
         type: PLUS_N,
-        payload: parseInt(payload),
+        payload: payload,
     }
 }
 
 export const minusN = (payload) => {
     return {
         type: MINUS_N,
-        payload: parseInt(payload),
+        payload: payload,
     }
 }
 

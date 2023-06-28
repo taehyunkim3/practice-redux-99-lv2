@@ -28,7 +28,8 @@ const dispatch = useDispatch();
         <>
                 <div> 현재 카운트:{counter.number}</div>
                 <input type="number" value={number} onChange={(e)=>{
-                    setNumber(e.target.value)
+                    const {value} = e.target;
+                    setNumber(+value) // = e.target.value 구조분해할당
                 }}></input>
                 <button onClick={()=>dispatch(plusN(number))}>+N</button>
                 <button onClick={()=>dispatch(minusN(number))}>-N</button>
